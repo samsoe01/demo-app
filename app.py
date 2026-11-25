@@ -1,0 +1,23 @@
+import os
+
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+APP_ENV = os.getenv("APP_ENV", "local")
+APP_VERSION = os.getenv("APP_VERSION", "0.1.0")
+
+
+@app.route("/")
+def index():
+    return jsonify(message="Hello from demo-app", env=APP_ENV, version=APP_VERSION)
+
+
+@app.route("/health")
+def health():
+    return jsonify(status="ok"), 200
+
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", "8080"))
+    app.run(host="0.0.0.0", port=port)
