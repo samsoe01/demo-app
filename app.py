@@ -5,7 +5,11 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 APP_ENV = os.getenv("APP_ENV", "local")
+<<<<<<< HEAD
 APP_VERSION = os.getenv("APP_VERSION", "0.3.0")
+=======
+APP_VERSION = os.getenv("APP_VERSION", "0.2.0")
+>>>>>>> origin/main
 
 
 @app.route("/")
